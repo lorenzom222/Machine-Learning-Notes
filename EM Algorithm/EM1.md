@@ -7,7 +7,7 @@ Expectation: Q($\theta$, $\theta^{old}$) = sum for all **Z** of the product of p
 - **Z**: Latent variable
 - $\theta$: Governing variable
 
-Goal: *Maximize p(__X__, $\theta$) wrt $\theta$*
+Goal: Maximize p(__X__, $\theta$) wrt $\theta$
 
 
 1. init: Choose an initial setting for the param $\theta^{old}$
