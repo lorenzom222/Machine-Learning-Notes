@@ -5,7 +5,7 @@ Expectation: Q($\theta$, $\theta^{old}$) = sum for all **Z** of the product of p
 - p(**Z**, **X**, $\theta$): Joint distribution 
 - **X**: Observed variables
 - **Z**: Latent variable
-- $\theta$$: Governing variable
+- $\theta$: Governing variable
 
 Goal: *Maximize p(__X__, $\theta$) wrt $\theta$*
 
