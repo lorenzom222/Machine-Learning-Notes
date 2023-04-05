@@ -97,8 +97,7 @@ $\boldsymbol{Z}$: $N \cdot K$ matrix of inferred variables
 
 Now we can sum over the $N$ observations along with (similar to the sample) the $K$ Gaussian compenents. And we can take it's log for good measure (not 100% why we do this, but for now I think it's because it makes the math easier):
 
-$ln p(X|π,μ,Σ) = ∑_{n=1}^{N} ln { ∑_{k=1}^{K} π_k N(x_n|μ_k,Σ_k) }
-           = ∑_{n=1}^{N} ln { ∑_{k=1}^{K} π_k (2π)^(-D/2) |Σ_k|^(-1/2) exp(-1/2(x_n-μ_k)^T Σ_k^(-1) (x_n-μ_k)) }$
+$ln p(X|π,μ,Σ) = ∑_{n=1}^{N} ln { ∑_{k=1}^{K} π_k N(x_n|μ_k,Σ_k) } = ∑_{n=1}^{N} ln { ∑_{k=1}^{K} π_k (2π)^(-D/2) |Σ_k|^(-1/2) exp(-1/2(x_n-μ_k)^T Σ_k^(-1) (x_n-μ_k)) }$
 
 
 ## EM Algorithm for Gaussion
