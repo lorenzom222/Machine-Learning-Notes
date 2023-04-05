@@ -54,6 +54,7 @@ $\pi_k$ Mixture Coefficient: Represent the prior probabilities of each component
 	- Probability of a particular element $z_k$ being equal to 1 is given by the value of the corresponding mixing coefficient $\pi_k$
 	- $p(\boldsymbol{z}) =$ product of all $\pi_k$ in $pi$ raised to the power of the corresponding element of $\boldsymbol{z}$.
 $p(\boldsymbol{z}) = \prod_k \pi_k^{z_k}$
+
 	- So if $z_2 = 1$ for some data point, $\pi_2 = p(z_2)$
 	- Each data point do not exclusively belong to a certain component, but to all of them with different probability
 	- Ex. if there are three components in the mixture and the mixing coefficients are $[0.2, 0.5, 0.3]$, then the probability of $z$ being equal to $[0, 1, 0]$ is $p(z=[0,1,0]) = 0.2^0 * 0.5^1 * 0.3^0 = 0.5$
@@ -65,6 +66,25 @@ $p(\boldsymbol{z}) = \prod_k \pi_k^{z_k}$
 
 - Joint-distrubution: $p(\boldsymbol{x}, \boldsymbol{z}) = p(\boldsymbol{z})p(\boldsymbol{x}|\boldsymbol{z})$ 
 Z ---> X
+
+
+## Defining Likelihood
+
+### Likelihood for a sample
+The marginal distribution for a *sample* being a single observation ($\boldsymbol{x}$) is the sum of the joint distrubtions over all possible states of $\boldsymbol{z}$.
+
+$p(\boldsymbol{x}) = \sum_z p(\boldsymbol{z})p(\boldsymbol{x|z})$
+
+We can combine the distrubtion of for a particular $\boldsymbol{z}$ and the conditional distribution of $\boldsymbol{x}$ given a particular value for $\boldsymbol{x}$.
+- $p(\boldsymbol{z}) = \prod_{k=1} \pi_k^{z_k}$
+- $p(\boldsymbol{x|z})= \prod_{k=1} \mathcal{N}(\boldsymbol{x}|\boldsymbol{\mu_k}\boldsymbol{\Sigma}_k)$
+
+
+
+$\boldsymbol{X}$: $N \cdot D$ matrix of observations
+- Each row represents a single observation ($N$) from the data
+- Each colunm represents a singl feature or dimension ($D$) of the data
+
 
 
 
