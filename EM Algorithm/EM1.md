@@ -83,7 +83,7 @@ We can combine the distrubtion of a particular $\boldsymbol{z}$ and the conditio
 $p(\boldsymbol{x}) = \prod_{k=1} \pi_k^{z_k}\mathcal{N}(\boldsymbol{x}|\boldsymbol{\mu_k}\boldsymbol{\Sigma}_k)$
 
 
-### Whole dataset
+### Whole dataset (1/2)
 $\boldsymbol{X}$: $N \cdot D$ matrix of observations
 - Each row represents a single observation ($N$) from the data
 - Each colunm represents a singl feature or dimension ($D$) of the data
@@ -99,44 +99,27 @@ Now we can sum over the $N$ observations along with (similar to the sample) the 
 
 $ln p(X|π,μ,Σ) = ∑_{n=1}^{N} ln { ∑_{k=1}^{K} π_k N(x_n|μ_k,Σ_k) }$
 
+And a likelihood function but with issues...
+
+## Maximum Likelihood with EM (2/2)
+We can take the derivative of likelihood function with respect to each parameter one at a time to evalute the posterior probablitites or "responsibilty".
+
+1. Take derivate of the likelihood function with respect to the means $μ_k$ of the Gaussian components of the mixture model and set to 0.
+	- This is because the mean key parameter that affects the overall behavior of the system
+	- The mean represents the center of each Gaussian component, which controls the location of the mode and the spread of the distribution. (Similar to the centroid in K-means)
+	- We can then solve for optimal means $μ_k$ rather than our random ones
+
 
 ## EM Algorithm for Gaussion
+Goal: *Mamimize the likelihood function with respect to the params (mean, covariance, mixing)*
+
+1. Init: initialize params to some value
+2. E-step: Evaluate the responsibilites using the current params
+3. M-Step: Re-estimate the params using the responsibilites you got from 2
+4. Check if converged{break if yes, return to 2 otherwise}
 
 
 
-## EM Algorithm
-
-Expectation: Q($\theta$, $\theta^{old}$) = sum for all **Z** of the product of p(**Z**, **X**, $\theta^{old}$) and the natrual log of p(**Z**, **X**, $\theta$)
-
-- p(**Z**, **X**, $\theta$): Joint distribution 
-- **X**: Observed variables
-- **Z**: Latent variable
-- $\theta$: Governing variable
-
-Goal: Maximize p(__X__, $\theta$) wrt $\theta$
-
-
-1. init: Choose an initial setting for the param $\theta^{old}$
-2. E-step: Evaluate p(**Z**, **X**, $\theta$)
-3. M-step: Evaluate $\theta^{new}$ 
-	- Given by:  $\theta^{new}$ argmax $Q(\theta,  \theta^{old})$
-	- where Q is the expectation as stated before
-
-- repeat 2 & 3
-
-
-
-## Exam 2:
-
-Understand Metal-Level EM:
-
-- Convergence
-- GMMs & HMMs
-
-- HMMS: Know the general model
-	- init: Transition Emission
-	- Foward/Backwards (aka D-Step)
-	- EM
 
 ## References
 
