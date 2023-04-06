@@ -1,0 +1,356 @@
+\part{HW 4: Graphical Models, Author: Lorenzo Mendoza}
+\label{hw4:graphicalmodelsauthor:lorenzomendoza}
+
+\part{Question 1}
+\label{question1}
+
+\chapter{1)}
+\label{1}
+
+\begin{itemize}
+\item A: 2 (C, B)
+
+\item B: 2 (C, A)
+
+\item C: 5 (A, B, D, E, F)
+
+\item D: 1 (C)
+
+\item E: 2 (C, F)
+
+\end{itemize}
+
+\chapter{2)}
+\label{2}
+
+E: (C, F)
+
+\chapter{3)}
+\label{3}
+
+$C_1$:\{$A,B,C$\} , $C_2$:\{$C,F,E$\} ,$C_3$: \{$C,D$\}
+
+\begin{verbatim}
+A --- B
+ \   /
+   C -- F
+  / \  /
+ D    E
+\end{verbatim}
+
+\chapter{4)}
+\label{4}
+
+\begin{verbatim}
+       A--(F1)--B
+           |
+     (F3)--C--(F2)--F 
+       |       |
+       D       E
+\end{verbatim}
+
+\chapter{5)}
+\label{5}
+
+\begin{itemize}
+\item F1(A,B,C) = P(A)*P(B)*P(C\textbar{}A,B) = P(A,B,C)
+
+\item F2(C,F,E) = P(E\textbar{}C)*P(F\textbar{}C)*P(C) = P(E,F\textbar{}C)
+
+\item F3(C,D) = P(D\textbar{}C)
+
+\end{itemize}
+
+\part{Question 2}
+\label{question2}
+
+\chapter{1)}
+\label{1}
+
+\begin{verbatim}
+$P (X)P (Y )$:
+- $P(X=0)=0.6$
+- $P(X=1)=0.4$
+- $P(Y=0)=0.592$
+- $P(Y=1)=0.408$
+  - $P(X=0)P( Y=0)=0.3552$
+  - $P(X=1) P(Y=0)=0.2368$
+  - $P(X=0)P( Y=1)=0.2448$
+  - $P(X=1) P(Y=1)=0.1632$
+
+$P (X,Y)$:
+- $P(X=0, Y=0)=0.336$
+- $P(X=1, Y=0)=0.256$
+- $P(X=0, Y=1)=0.264$
+- $P(X=1, Y=1)=0.144$
+
+$\therefore P (X)P (Y )\ne P (X,Y)$
+\end{verbatim}
+
+\chapter{2)}
+\label{2}
+
+\begin{verbatim}
+$P (X, Y |Z)$:
+- $P (X=0, Y=0 |Z=0) = 0.192$
+- $P (X=0, Y=0 |Z=1) = 0.144$
+- $P (X=0, Y=1 |Z=0) = 0.048$
+- $P (X=0, Y=1 |Z=1) = 0.216$
+- $P (X=1, Y=0 |Z=0) = 0.192$
+- $P (X=1, Y=0 |Z=1) = 0.064$
+- $P (X=1, Y=1 |Z=0) = 0.048$
+- $P (X=1, Y=1 |Z=1) = 0.096$
+
+$P (X|Z) P(Y |Z)$:
+
+  $P (X|Z)$
+  - $P (X=0|Z=0) = 0.24$
+  - $P (X=0|Z=1) = 0.36$
+  - $P (X=1|Z=0) = 0.24$
+  - $P (X=1|Z=1) = 0.16$
+      
+  $P (Y|Z)$
+  - $P (Y=0|Z=0) = 0.384$
+  - $P (Y=0|Z=1) = 0.096$
+  - $P (Y=1|Z=0) = 0.208$
+  - $P (Y=1|Z=1) = 0.312$
+
+$P (X|Z) P(Y |Z)$
+- $P (X=0|Z=0) P(Y=0 |Z=0) = 0.192$
+- $P (X=0|Z=1) P(Y=0 |Z=1) = 0.144$
+- $P (X=0|Z=0) P(Y=1|Z=0)= 0.048$
+- $P (X=0|Z=1) P(Y=1|Z=1) = 0.216$
+- $P (X=1|Z=0) P(Y=0|Z=0) = 0.192$
+- $P (X=1|Z=1) P(Y=0|Z=1) = 0.064$
+- $P (X=1|Z=0) P(Y=1|Z=0) = 0.048$
+- $P (X=1|Z=1) P(Y=1|Z=1) = 0.096$
+
+$\therefore P (X, Y |Z) = P (X|Z) P(Y |Z)$
+\end{verbatim}
+
+\chapter{3)}
+\label{3}
+
+$P(X):$
+
+\begin{verbatim}
+P(X=0) = P(X=0,Y=0,Z=0) + P(X=0,Y=0,Z=1) + P(X=0,Y=1,Z=0) + P(X=0,Y=1,Z=1) 
+= 0.192 + 0.144 + 0.048 + 0.216 = 0.6 
+
+P(X=1) = P(X=1,Y=0,Z=0) + P(X=1,Y=0,Z=1) + P(X=1,Y=1,Z=0) + P(X=1,Y=1,Z=1) 
+= 0.192 + 0.064 + 0.048 + 0.096 = 0.4
+\end{verbatim}
+
+$P(Y|Z):$
+
+\begin{verbatim}
+P(Z=0) = P(X=0,Y=0,Z=0) + P(X=0,Y=1,Z=0) + P(X=1,Y=0,Z=0) + P(X=1,Y=1,Z=0) 
+= 0.192 + 0.048 + 0.192 + 0.048 = 0.48 
+
+P(Z=1) = P(X=0,Y=0,Z=1) + P(X=0,Y=1,Z=1) + P(X=1,Y=0,Z=1) + P(X=1,Y=1,Z=1) 
+= 0.144 + 0.216 + 0.064 + 0.096 = 0.52
+
+P(Y=0|Z=0) = P(Y=0,Z=0)/P(Z=0) = 0.384/0.48 = 0.8
+P(Y=1|Z=0) = P(Y=1,Z=0)/P(Z=0) = 0.096/0.48 = 0.2 
+P(Y=0|Z=1) = P(Y=0,Z=1)/P(Z=1) = 0.208/0.52 = 0.4 
+P(Y=1|Z=1) = P(Y=1,Z=1)/P(Z=1) = 0.312/0.52 = 0.6
+\end{verbatim}
+
+$P(Z|X):$
+
+\begin{verbatim}
+p(x=0,z=0) = p(0,0,0) + p(0,1,0) = 0.192 + 0.048 = 0.24
+p(x=1,z=0) = p(1,0,0) + p(1,1,0) = 0.192 + 0.048 = 0.24
+p(x=0,z=1) = p(0,0,1) + p(0,1,1) = 0.144 + 0.216 = 0.36
+p(x=1,z=1) = p(1,0,1) + p(1,1,1) = 0.064 + 0.096 = 0.16
+
+
+p(z=0|x=0) = p(x=0,z=0) / p(x=0) = 0.24 / 0.6 = 0.4
+p(z=1|x=0) = p(x=0,z=1) / p(x=0) = 0.36 / 0.6 = 0.6
+p(z=0|x=1) = p(x=1,z=0) / p(x=1) = 0.24 / 0.4 = 0.6
+p(z=1|x=1) = p(x=1,z=1) / p(x=1) = 0.16 / 0.4 = 0.4
+\end{verbatim}
+
+$P(X)P(Z|X)P(Y|Z) = P(X,Y,Z)$
+
+\begin{verbatim}
+p(x=0)p(z=0|x=0)p(y=0|z=0) = 0.6 * 0.4 * 0.8 = 0.192 = p(0,0,0) 
+p(x=0)p(z=1|x=0)p(y=0|z=1) = 0.6 * 0.6 * 0.4 = 0.144 = p(0,0,1)
+p(x=0)p(z=0|x=0)p(y=1|z=0) = 0.6 * 0.4 * 0.2 = 0.048 = p(0,1,0)
+p(x=0)p(z=1|x=0)p(y=1|z=1) = 0.6 * 0.6 * 0.6 = 0.216 = p(0,1,1)
+p(x=1)p(z=0|x=1)p(y=0|z=0) = 0.4 * 0.6 * 0.8 = 0.192 = p(1,0,0) 
+p(x=1)p(z=1|x=1)p(y=0|z=1) = 0.4 * 0.4 * 0.4 = 0.064 = p(1,0,1)
+p(x=1)p(z=0|x=1)p(y=1|z=0) = 0.4 * 0.6 * 0.2 = 0.048 = p(1,1,0)
+p(x=1)p(z=1|x=1)p(y=1|z=1) = 0.4 * 0.4 * 0.6 = 0.096 = p(1,1,1)
+\end{verbatim}
+
+\begin{enumerate}
+\item 
+
+\end{enumerate}
+
+\begin{verbatim}
+ _
+|X|
+ ─
+ |
+ V
+ _
+|Z|
+ ─
+ |
+ V
+ _
+|Y|
+ ─
+\end{verbatim}
+
+\part{Question 3}
+\label{question3}
+
+Approaches: 1. $(A',B') = argmax($\_(\$A,B) )\$ 2.
+$A'' = argmax(P(A))$, $B'' = argmax(P(B))$
+
+Potential Function 1 (Same Results): \textbar{} A \textbar{} B \textbar{} $\psi_1$(A, B) \textbar{} \textbar{} —
+\textbar{} — \textbar{} ————– \textbar{} \textbar{} 0 \textbar{} 0 \textbar{} 0 \textbar{} \textbar{} 0 \textbar{} 1 \textbar{} 1\slash 2 \textbar{} \textbar{} 1 \textbar{} 0 \textbar{} 1\slash 2
+\textbar{} \textbar{} 1 \textbar{} 1 \textbar{} 0 \textbar{}
+
+Results:
+
+$(A',B') = (0,1)$ or $(1,0)$
+
+$(A'',B'') = (0,1)$ or $(1,0)$
+
+$\therefore (A',B')=(A'',B'')$
+
+Potential Function 2 (Distinct Results): \textbar{} A \textbar{} B \textbar{} $\psi_2$(A, B) \textbar{}
+\textbar{} — \textbar{} — \textbar{} ————– \textbar{} \textbar{} 0 \textbar{} 0 \textbar{} 0.4 \textbar{} \textbar{} 0 \textbar{} 1 \textbar{} 0 \textbar{} \textbar{} 1 \textbar{} 0 \textbar{}
+0.3 \textbar{} \textbar{} 1 \textbar{} 1 \textbar{} 0.3 \textbar{}
+
+Results:
+
+$(A',B') = (0,0)$
+
+$(A'',B'') = (1,0)$
+
+$\therefore (A',B')\ne(A'',B'')$
+
+\part{Question 4}
+\label{question4}
+
+\chapter{1)}
+\label{1}
+
+$\mu_{E \rightarrow f3} = 1$ \#\# 2) $\mu_{D \rightarrow f2} = 1$ \#\#
+3)
+$\mu_{f1 \rightarrow D} = \sum_{A,B}(\psi(A,B,D) * \mu_{A \rightarrow f1}* \mu_{B \rightarrow f1})=\sum_{A,B}(\psi(A,B,D)$
+
+\begin{itemize}
+\item $\mu_{f1 \rightarrow D=0} = \psi(0,0,0)+\psi(0,1,0)+ \psi(1,0,0)+\psi(1,1,0)=0.62$
+
+\item $\mu_{f1 \rightarrow D=1} = \psi(0,0,1)+\psi(0,1,1)+ \psi(1,0,1)+\psi(1,1,1)=0.39$
+
+\end{itemize}
+
+$\therefore$ $\mu_{f1 \rightarrow D} = [0.62, 0.39]$
+
+\begin{enumerate}
+\item P(D=0) = \sigma_A \sigma_B \sigma_C \sigma_E $\psi_1$(A,B,D=0) * $\psi_2$(C,D=0) *
+$\psi_3$(D=0,E)
+
+P(D=1) = \sigma_A \sigma_B \sigma_C \sigma_E $\psi_1$(A,B,D=1) * $\psi_2$(C,D=1) *
+$\psi_3$(D=1,E)
+
+Substituting the values from the given tables, we get:
+
+P(D=0) = (0.08+0.08+0.08+0.02) * 0.60 * (0.40+0.60) +
+(0.40+0.05+0.06+0.24) * 0.40 * (0.90+0.10) P(D=1) =
+(0.08+0.08+0.08+0.02) * 0.10 * (0.40+0.60) +
+(0.40+0.05+0.06+0.24) * 0.90 * (0.90+0.10)
+
+After calculating these values, we get:
+
+P(D=0) = 1.056 P(D=1) = 1.584
+
+Since these probabilities must sum to 1, we need to normalize them:
+
+P(D=0) = 1.056 \slash  (1.056 + 1.584) ≈ 0.400 P(D=1) = 1 \slash  (1 +
+(1.056\slash 1.584)) ≈ 0.600
+
+So, P(D=0) ≈ 0.400 and P(D=1) ≈ 0.600.
+
+\end{enumerate}
+
+\part{Question 5}
+\label{question5}
+
+Directed graphical models, such as Bayesian networks, can be used to
+study Autism Spectrum Disorder (ASD) by identifying the causal
+relationships between different symptoms or characteristics of ASD. For
+example, a directed graphical model could be used to identify the causal
+relationships between social communication difficulties, repetitive
+behaviors, sensory sensitivities, and other symptoms of ASD. Consider a
+directed graphical model with the following variables:
+
+\begin{verbatim}
+PE --> ASD
+       / | \
+      /  |  \
+     /   |   \
+  V    V    V
+SCD   RB   SS
+\end{verbatim}
+
+\begin{itemize}
+\item ASD (Autism Spectrum Disorder): The outcome variable of interest.
+This variable indicates the presence or absence of ASD.
+
+\item SCD (Social Communication Difficulties): This variable measures
+social communication difficulties, such as difficulties with
+nonverbal communication or social interactions. SCD is a potential
+predictor of ASD because individuals with ASD often have
+difficulties with social communication.
+
+\item RB (Repetitive Behaviors): This variable measures repetitive
+behaviors, such as repetitive movements or rituals. RB is a
+potential predictor of ASD because individuals with ASD often
+display repetitive behaviors.
+
+\item SS (Sensory Sensitivities): This variable measures sensory
+sensitivities, such as sensitivity to noise or light. SS is a
+potential predictor of ASD because individuals with ASD often have
+sensory sensitivities.
+
+\item PE (Pregnancy Environment): This variable measures the pregnancy
+environment, which could include factors such as exposure to
+alcohol, drugs, or environmental toxins, as well as genetic
+predisposition to ASD. PE is a potential predictor of ASD because
+the pregnancy environment may influence the probability of having
+ASD. The conditional probability distributions (or potential
+functions) for this model can be defined as follows:
+
+\begin{itemize}
+\item P(ASD \textbar{} PE): The probability of having ASD given the values of
+the predictor variable PE.
+
+\item P(SCD \textbar{} ASD): The probability of having social communication
+difficulties given the presence of ASD.
+
+\item P(RB \textbar{} ASD): The probability of having repetitive behaviors
+given the presence of ASD.
+
+\item P(SS \textbar{} ASD): The probability of having sensory sensitivities
+given the presence of ASD.
+
+\end{itemize}
+
+\end{itemize}
+
+This model can be used to answer a variety of questions related to ASD
+and its potential predictors, such as: * How does the pregnancy
+environment influence the probability of having ASD? * Can social
+communication difficulties, repetitive behaviors, or sensory
+sensitivities be used as early indicators of ASD? * How do the
+different predictors interact to influence the probability of having
+ASD? * How can interventions be tailored based on the specific
+combination of symptoms and predictors in individuals with ASD?
