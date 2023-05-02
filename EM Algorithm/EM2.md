@@ -20,6 +20,11 @@ Goal: Maximize p(__X__, $\theta$) wrt $\theta$
 
 
 
+## Foundation
+
+
+
+
 ## Exam 2:
 
 Understand Metal-Level EM:
