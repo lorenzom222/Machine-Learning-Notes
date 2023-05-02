@@ -130,8 +130,9 @@ The simplier example is nice, but of course we aren't going to actually know the
 
 1. We compute the joint probabilty of being in a particular weather (hidden) sequence $Q$ and generating a particular ice-cream(observation) sequence $O$:
 
-$P(O, Q)=P(O|Q)* P(Q) = Π^{T}_{i=1}P(o_i|q_i) * Π^{T}_{i=1}P(q_i|q_{i-1)$
-
+```math
+P(O, Q)=P(O|Q)* P(Q) = Π^{T}_{i=1}P(o_i|q_i) * Π^{T}_{i=1}P(q_i|q_{i-1)
+```
 **NOTE**
 
 <sub>The joint probability P(O, Q) can be computed as the product of two terms: the conditional probability of observing the observation sequence O given the hidden state sequence Q, denoted by P(O|Q), and the prior probability of the hidden state sequence Q, denoted by P(Q).<sub>
