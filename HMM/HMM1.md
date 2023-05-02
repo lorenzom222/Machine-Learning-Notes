@@ -134,13 +134,13 @@ $P(O, Q) = P(O|Q) \cdot P(Q) = Π^{T}_{i=1}P(o_i|q_i) \cdot Π^{T}_{i=1}P(q_i|q_
 
 **NOTE**
 
-<sub>The joint probability P(O, Q) can be computed as the product of two terms: the conditional probability of observing the observation sequence O given the hidden state sequence Q, denoted by P(O|Q), and the prior probability of the hidden state sequence Q, denoted by P(Q).
+<sub>The joint probability P(O, Q) can be computed as the product of two terms: the conditional probability of observing the observation sequence O given the hidden state sequence Q, denoted by P(O|Q), and the prior probability of the hidden state sequence Q, denoted by P(Q).<sub>
 
-The conditional probability P(O|Q) can be computed as the product of the individual observation probabilities P(o_i|q_i) for each time step i. This represents the probability of observing the ice-cream event o_i at time step i given that the weather is q_i at time step i.
+<sub>The conditional probability P(O|Q) can be computed as the product of the individual observation probabilities P(o_i|q_i) for each time step i. This represents the probability of observing the ice-cream event o_i at time step i given that the weather is q_i at time step i.<sub>
 
-The prior probability P(Q) can be computed as the product of the individual state transition probabilities P(q_i|q_{i-1}) for each time step i. This represents the probability of transitioning from weather q_{i-1} at time step i-1 to weather q_i at time step i.
+<sub>The prior probability P(Q) can be computed as the product of the individual state transition probabilities P(q_i|q_{i-1}) for each time step i. This represents the probability of transitioning from weather q_{i-1} at time step i-1 to weather q_i at time step i.<sub>
 
-By multiplying these two terms together, we obtain the joint probability of being in a particular hidden state sequence Q and generating a particular observation sequence O.<sub>
+<sub>By multiplying these two terms together, we obtain the joint probability of being in a particular hidden state sequence Q and generating a particular observation sequence O.<sub>
 
 
 
