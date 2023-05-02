@@ -111,6 +111,42 @@ HMM $\lambda = (A, B)$ is also $\theta = {A, \pi, \phi}$ and $X = O$ for the obs
 3. Learning: - $argmax_{\theta}P(X|\theta)$ - find params w/max likelihood
 
 
+## Likelihood Problem (Inference): The Forward Algorithm
+*What is the probability of the sequence ...?*
+
+For this task, we are interested in the **computing the likelihood** of a particular sequence.
+
+
+- Example: We want to determine the probability of an ice-cream observation sequence like *3 1 3*, but we don’t know what the hidden state sequence is! Computing the probability of an observation sequence without knowing the hidden state sequence (the weather).
+* This means that we need to consider all possible hidden state sequences and compute the probability of observing the ice-cream sequence 3 1 3 for each of them. 
+
+- Simplier Example: Okay, assume we know where we know the weather (hidden state sequence ) like *hot hot cold* and we want the probability of an ice-cream observation sequence like *3 1 3*. Computing the output likelihood of an observation sequence given a known hidden state sequence.
+* This means that we only need to consider a single hidden state sequence (e.g., *hot hot cold*) and compute the output likelihood of observing the ice-cream sequence *3 1 3* given this hidden state sequence.
+    - Each hidden state only produces 1 observation -> Meaning hidden and observation state have same length
+    - Given this 1:1 mappiing and Markov Assumption, likelihood sequence is:$P(O|Q) = Π^{T}_{i=1}P(o_i|q_i)$
+    - $P(3, 1, 3| \text{hot} \text{hot} \text{cold}) = P(3|\text{hot}) \cdot P(1|\text{hot}) \cdot P(3|\text{cold})$
+
+The simplier example is nice, but of course we aren't going to actually know the hidden state sequence. So are going to need to: 1. Consider all the hidden sequences, 2. Compute the probability of observing an observation sequence for each hidden sequence. For our example, we need to compute the probabilty of the ice-cream (observation) events $3 1 3$ instead by summing over all possible weather (hidden) sequences, weighted by their probabilty.
+
+1. We compute the joint probabilty of being in a particular weather (hidden) sequence $Q$ and generating a particular ice-cream(observation) sequence $O$:
+
+$P(O, Q) = P(O|Q) \cdot P(Q) = Π^{T}_{i=1}P(o_i|q_i) \cdot Π^{T}_{i=1}P(q_i|q_{i-1)$
+
+**NOTE**
+<small>The joint probability P(O, Q) can be computed as the product of two terms: the conditional probability of observing the observation sequence O given the hidden state sequence Q, denoted by P(O|Q), and the prior probability of the hidden state sequence Q, denoted by P(Q).
+
+The conditional probability P(O|Q) can be computed as the product of the individual observation probabilities P(o_i|q_i) for each time step i. This represents the probability of observing the ice-cream event o_i at time step i given that the weather is q_i at time step i.
+
+The prior probability P(Q) can be computed as the product of the individual state transition probabilities P(q_i|q_{i-1}) for each time step i. This represents the probability of transitioning from weather q_{i-1} at time step i-1 to weather q_i at time step i.
+
+By multiplying these two terms together, we obtain the joint probability of being in a particular hidden state sequence Q and generating a particular observation sequence O.<small>
 
 
 
+
+
+
+
+## References
+- https://criss-wang.github.io/post/blogs/hidden-markov-models/
+- https://web.stanford.edu/~jurafsky/slp3/A.pdf
