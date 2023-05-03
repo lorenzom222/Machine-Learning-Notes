@@ -123,7 +123,7 @@ For this task, we are interested in the **computing the likelihood** of a partic
 - Simplier Example: Okay, assume we know where we know the weather (hidden state sequence ) like *hot hot cold* and we want the probability of an ice-cream observation sequence like *3 1 3*. Computing the output likelihood of an observation sequence given a known hidden state sequence.
 * This means that we only need to consider a single hidden state sequence (e.g., *hot hot cold*) and compute the output likelihood of observing the ice-cream sequence *3 1 3* given this hidden state sequence.
     - Each hidden state only produces 1 observation -> Meaning hidden and observation state have same length
-    - Given this 1:1 mappiing and Markov Assumption, likelihood sequence is:$P(O|Q) = Π^{T}_{i=1}P(o_i|q_i)$
+    - Given this 1:1 mappiing and Markov Assumption, likelihood sequence is: $P(O|Q) = Π^{T}_{i=1}P(o_i|q_i)$
     - $P(3, 1, 3| \text{hot} \text{hot} \text{cold}) = P(3|\text{hot}) \cdot P(1|\text{hot}) \cdot P(3|\text{cold})$
 
 The simplier example is nice, but of course we aren't going to actually know the hidden state sequence. So are going to need to: 1. Consider all the hidden sequences, 2. Compute the probability of observing an observation sequence for each hidden sequence. For our example, we need to compute the probabilty of the ice-cream (observation) events $3 1 3$ instead by summing over all possible weather (hidden) sequences, weighted by their probabilty.
@@ -144,7 +144,19 @@ P(O, Q)=P(O|Q)* P(Q) = Π^{T}_{i=1}P(o_i|q_i) * Π^{T}_{i=1}P(q_i|q_{i-1})
 
 <sub>By multiplying these two terms together, we obtain the joint probability of being in a particular hidden state sequence Q and generating a particular observation sequence O.<sub>
 
+2. Compute the total probabilty of the observations by just summing over all possible hidden sequences... but hold up, this take $O(N^T)$ so wtf.
 
+### The Forward Algorithm
+Dynamic programming solution which uses memoization to cache intermidiate values as it builds up to the probabilty of the observation sequence. It sums over all the probabilites of all possible hidden state paths that could generate the sequence by implicitly folding each of these paths into a single forward **trellis**.
+
+```math
+α_t(j) = \sum_{i=1}^N α_{t-1}(j) \cdot a_{ij} \cdot b_j(o_t)
+```
+
+- $α_t(j)$: probabilty of being in state $j$ after seeing the 1st $t$ observation
+- $α_{t-1}(i)$: the **previous forward path probability** from the last time steps
+- $a_{ij}$: transition prob from previous state $q_i$ to current $q_j$
+- $b_j(o_t)$: the state observation likelihood of $o_t$ given the current state $j$
 
 
 
