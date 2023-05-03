@@ -46,13 +46,13 @@ $\therefore$  $\mu_{f1 \rightarrow D} = [0.62, 0.39]$
 
 4) 
 ```math
-P(D=0) = \sigma_A \sigma_B \sigma_C \sigma_E \psi_1(A,B,D=0) * \psi_2(C,D=0) *
+P(D=0) = \Sigma_A \Sigma_B \Sigma_C \Sigma_E \psi_1(A,B,D=0) * \psi_2(C,D=0) *
 \psi_3(D=0,E)
 ```
 
 ```math
 
-P(D=1) = \sigma_A \sigma_B \sigma_C \sigma_E \psi_1(A,B,D=1) * \psi_2(C,D=1) *
+P(D=1) = \Sigma_A \Sigma_B \Sigma_C \Sigma_E \psi_1(A,B,D=1) * \psi_2(C,D=1) *
 \psi_3(D=1,E)
 ```
 
