@@ -66,12 +66,15 @@ P(D=0) = (0.08+0.08+0.08+0.02) * 0.60 * (0.40+0.60) +
 
 After calculating these values, we get:
 
-P(D=0) = 1.056 P(D=1) = 1.584
+$P(D=0) = 1.056$
+
+$P(D=1) = 1.584$
 
 Since these probabilities must sum to 1, we need to normalize them:
 
-P(D=0) = 1.056 /  (1.056 + 1.584) ≈ 0.400 P(D=1) = 1 / (1 +
-(1.056\slash 1.584)) ≈ 0.600
+$P(D=0) = 1.056 /  (1.056 + 1.584) ≈ 0.400 P(D=1)$ 
+
+$= 1 / (1 +(1.056\slash 1.584)) ≈ 0.600$
 
 So, P(D=0) ≈ 0.400 and P(D=1) ≈ 0.600.
 
